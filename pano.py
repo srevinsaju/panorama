@@ -88,6 +88,12 @@ class PanoCapture():
             self.camera.start()
         else:
             self.has_camera = False
+            self.font = pygame.font.Font('freesansbold.ttf', 32)
+            message = "Camera not Found"
+            self.text = self.font.render(message, True, (255, 255, 255), (0, 0, 0))
+            self.text_frame = self.text.get_rect()
+            self.text_frame.center = (self.size[0] // 2, self.size[1] // 2)
+            
         self.clock = pygame.time.Clock()
         self.final = None
         self.imlist = []
@@ -138,9 +144,13 @@ class PanoCapture():
                 elif e.type == KEYDOWN and e.key == K_SPACE:
                     self.add_capture()
 
-
+        if self.has_camera:
             self.get_and_flip()
             self.clock.tick()
+        else:
+            self.display.fill((0, 0, 0))
+            self.display.blit(self.text, self.text_frame)
+            pygame.display.update()
 
         if self.camera:
             self.camera.stop()
