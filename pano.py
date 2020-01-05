@@ -81,6 +81,7 @@ class PanoCapture():
         pygame.camera.init()
         self.fuente = pygame.font.Font(None, 60)
         self.camlist = camera.list_cameras()
+        self.display = pygame.display.get_surface()
         if len(self.camlist) >= 1:
             self.has_camera = True
             self.camera = camera.Camera(self.camlist[0], self.size, "RGB")
@@ -95,7 +96,6 @@ class PanoCapture():
         self.imlist = []
         self.offset = 20
         self.max_cant = 9
-        self.display = pygame.display.get_surface()
         self.display.fill((82, 186, 74))
 
         self.converted = pygame.surface.Surface(self.size, 0, self.display)
