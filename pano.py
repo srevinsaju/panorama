@@ -145,7 +145,7 @@ class PanoCapture():
             self.clock.tick()
         else:
             self.show_text("Camera not Found")
-            pygame.display.flip()
+           
             self.clock.tick()
 
         if self.has_camera:
