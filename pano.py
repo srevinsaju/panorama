@@ -66,7 +66,7 @@ class PanoCapture():
         if not(N == self.max_cant):
             self.imlist.append(self.snapshot.copy())
             self.display.blit(self.snapshot, (20,0))
-            self.tiny = pygame.transform.scale(self.snapshot, (self.size[0]/self.thumbscale,self.size[1]/self.thumbscale), self.tiny)
+            self.tiny = pygame.transform.scale(self.snapshot, (self.size[0]//self.thumbscale,self.size[1]//self.thumbscale), self.tiny)
             self.display.blit(self.tiny,(self.offset,480))
             self.offset += 3*self.size[0]/(4*self.thumbscale)
             pygame.display.flip()
