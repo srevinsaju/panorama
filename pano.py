@@ -81,9 +81,13 @@ class PanoCapture():
         pygame.camera.init()
         self.fuente = pygame.font.Font(None, 60)
         self.camlist = camera.list_cameras()
-        self.camera = camera.Camera(self.camlist[0], self.size, "RGB")
-        self.camera.set_controls(True, False)
-        self.camera.start()
+        if len(self.camlist) >= 1:
+            self.has_camera = True
+            self.camera = camera.Camera(self.camlist[0], self.size, "RGB")
+            self.camera.set_controls(True, False)
+            self.camera.start()
+        else:
+            self.has_camera = False
         self.clock = pygame.time.Clock()
         self.final = None
         self.imlist = []
