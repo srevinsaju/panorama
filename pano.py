@@ -88,11 +88,7 @@ class PanoCapture():
             self.camera.start()
         else:
             self.has_camera = False
-            self.font = pygame.font.Font('freesansbold.ttf', 32)
-            message = "Camera not Found"
-            self.text = self.font.render(message, True, (255, 255, 255), (0, 0, 0))
-            self.text_frame = self.text.get_rect()
-            self.text_frame.center = (self.size[0] // 2, self.size[1] // 2)
+            self.show_text("Camera not Found")
             
         self.clock = pygame.time.Clock()
         self.final = None
@@ -148,9 +144,10 @@ class PanoCapture():
             self.get_and_flip()
             self.clock.tick()
         else:
-            self.show_text("Camera not Found") 
-            
-            pygame.display.update()
+            self.show_text("Camera not Found")
+            pygame.display.flip()
+            self.clock.tick()
+
         if self.has_camera:
             if self.camera:
                 self.camera.stop()
