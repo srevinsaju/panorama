@@ -151,8 +151,8 @@ class PanoCapture():
             self.display.fill((0, 0, 0))
             self.display.blit(self.text, self.text_frame)
             pygame.display.update()
-
-        if self.camera:
-            self.camera.stop()
+        if self.has_camera:
+            if self.camera:
+                self.camera.stop()
         
 
