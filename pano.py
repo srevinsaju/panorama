@@ -46,9 +46,6 @@ class PanoCapture():
         self._show_err_msg = False
         #self.camera.set_controls(brightness = 129)
 
-        # Declare a font
-        self.font = pygame.font.Font('freesansbold.ttf', 32)
-
     def auto_stiching(self, option):
         self.auto_stich = option
 
@@ -198,7 +195,7 @@ class PanoCapture():
                 elif e.type == KEYDOWN and e.key == K_SPACE:
                     self.add_capture()
 
-            text = self.font.render(message, True, (255, 255, 255), (0, 0, 0))
+            text = self.feunte.render(message, True, (255, 255, 255), (0, 0, 0))
             text_frame = text.get_rect()
             text_frame.center = (x_s // 2, y_s // 2)
             
