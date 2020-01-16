@@ -157,7 +157,7 @@ class PanoCapture():
             self.get_and_flip()
             self.clock.tick()
 
-        if self.camera: 
+        if self.has_camera and self.camera: 
             self.camera.stop()
         
         while not self.has_camera and self._show_err_msg:
