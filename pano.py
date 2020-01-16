@@ -82,8 +82,8 @@ class PanoCapture():
         pygame.camera.init()
         self.fuente = pygame.font.Font(None, 60)
         self.camlist = camera.list_cameras()
-        self.camera = camera.Camera(self.camlist[0], self.size, "RGB")
-        if self.camera:
+        try:
+            self.camera = camera.Camera(self.camlist[0], self.size, "RGB")
             self.has_camera = True
             self.camera.start()
             try:
@@ -91,7 +91,7 @@ class PanoCapture():
             except SystemError:
                 pass
             self._show_err_msg = False
-        else:
+        except IndexError:
             self._show_err_msg = True
             self.message = _('Camera not found')
 
