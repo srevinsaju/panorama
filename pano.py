@@ -153,7 +153,7 @@ class PanoCapture():
                 elif e.type == KEYDOWN and e.key == K_SPACE and self.has_camera:
                     self.add_capture()
 
-            if has_camera:
+            if self.has_camera:
                 self.get_and_flip()
             else:
                 self.show_text(self.message)
