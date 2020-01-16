@@ -196,6 +196,6 @@ class PanoCapture():
                     self.add_capture()
 
 
-            self.get_and_flip()
+            
             self.clock.tick()
 
