@@ -84,13 +84,13 @@ class PanoCapture():
         self.camlist = camera.list_cameras()
         self.camera = camera.Camera(self.camlist[0], self.size, "RGB")
         if self.camera:
-        	self.has_camera = True
-        	self.camera.start()
-        	try:
-        	    self.camera.set_controls(hfilp=True)
-        	except SystemError:
-        	    pass
-        	self._show_err_msg = False
+            self.has_camera = True
+            self.camera.start()
+            try:
+                self.camera.set_controls(hfilp=True)
+            except SystemError:
+                pass
+            self._show_err_msg = False
         else:
             self._show_err_msg = True
             self.message = _('Camera not found')
@@ -123,16 +123,16 @@ class PanoCapture():
                 if e.type == pygame.USEREVENT:
                     if hasattr(e,"action"):
                         if e.action == 'save_button':
-                        	if self.has_camera:
-		                        self.show_text("Saving")
-		                        if self.final:
-		                            self.parent.save_image(self.final)
-		                        else:
-		                            if not(self.imlist == []):
-		                                self.final = stitcher.build_panorama(self, self.imlist, self.auto_stich)
-		                                self.parent.save_image(self.final)
-							else:
-		                    	self.show_text(_("Cannot save"))
+                            if self.has_camera:
+                                self.show_text("Saving")
+                                if self.final:
+                                    self.parent.save_image(self.final)
+                                else:
+                                    if not(self.imlist == []):
+                                        self.final = stitcher.build_panorama(self, self.imlist, self.auto_stich)
+                                        self.parent.save_image(self.final)
+                            else:
+                                self.show_text(_("Cannot save"))
                             pygame.display.flip()
                         elif e.action == 'new_button':
                             self.imlist = []
