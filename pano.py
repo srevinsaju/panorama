@@ -26,6 +26,7 @@ import os
 import sys
 from gi.repository import Gtk
 import time
+from gettext import gettext as _
 import logging
 import stitcher
 try:
